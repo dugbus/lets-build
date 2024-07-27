@@ -1,14 +1,55 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <h1>Simple Change</h1>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DUGBUS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu:wght@500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header container">
+
+    <a href="/" title="Go to home page">
+      <svg class="site-logo">
+        <use href="/sprites.svg#logo"></use>
+      </svg>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main id="main-content">
+
+    <section class="container">
+      <h2>Section Title</h2>
+      <p>Section content...</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer container">
+    <p>&copy; 2024 DUGBUS. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>

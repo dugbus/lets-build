@@ -1,0 +1,166 @@
+:root {
+  --font-body: "Source Sans 3", sans-serif;
+  --font-headings: "Ubuntu", sans-serif;
+  --font-system: system-ui, sans-serif;
+
+  --width-l: 90rem;
+  --width-m: 56rem;
+  --width-s: 30rem;
+
+  --grid-gap: 3rem;
+  --grid-size: 22rem;
+  --text-gap: 2em;
+
+  --container-width: var(--width-l);
+  --container-edge: 3rem;
+  --container-padding: 4rem;
+
+  --color-ink: #16161d;
+  --color-paper: #f8f8f8;
+
+  --font-scale-xs: clamp(.64rem, calc(.58rem + .28vw), .8rem);
+  --font-scale-s: clamp(.8rem, calc(.73rem + .35vw), 1rem);
+  --font-scale-n: clamp(1rem, calc(.91rem + .43vw), 1.25rem);
+  --font-scale-m: clamp(1.25rem, calc(1.14rem + .54vw), 1.56rem);
+  --font-scale-l: clamp(1.56rem, calc(1.43rem + .68vw), 1.95rem);
+  --font-scale-xl: clamp(1.95rem, calc(1.78rem + .85vw), 2.44rem);
+  --font-scale-xxl: clamp(2.44rem, calc(2.23rem + 1.06vw), 3.05rem);
+  --font-scale-xxxl: clamp(3.05rem, calc(2.79rem + 1.33vw), 3.82rem);
+
+  --transition-time: .22s;
+  --hover-opacity: .8;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background: var(--color-paper);
+}
+
+@media (prefers-reduced-motion:no-preference) {
+  html {
+    scroll-behavior: smooth
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-ink);
+  font-optical-sizing: auto;
+  font-family: var(--font-body);
+  font-size: var(--font-scale-n);
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100%;
+  text-rendering: optimizeLegibility
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+  font-family: var(--font-headings);
+  letter-spacing: -.025em;
+  line-height: 1.25;
+  margin: .75em 0;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: var(--font-scale-xl);
+}
+
+h2 {
+  font-size: var(--font-scale-l);
+}
+
+h3 {
+  font-size: var(--font-scale-m);
+}
+
+h4 {
+  font-family: var(--font-body);
+}
+
+p {
+  margin: 0 0 1em
+}
+
+p:last-child {
+  margin: 0
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+p:first-child {
+  margin-top: 0
+}
+
+main {
+  margin-bottom: 3rem
+}
+
+img {
+  height: auto;
+  max-width: 100%
+}
+
+.container {
+  margin: 0;
+  padding-block: var(--container-padding);
+  padding-inline: max(var(--container-edge), calc(50% - var(--container-width)/2))
+}
+
+.site-header {
+  --container-padding: 1rem;
+  --container-width: var(--width-l);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo {
+  width: 4rem;
+  aspect-ratio: 1;
+  color: red;
+}
+
+.site-footer {
+  --container-padding: 2rem;
+  --container-margin: 0;
+  position: sticky;
+  top: 100%;
+  text-align: center;
+}
