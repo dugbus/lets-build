@@ -1,12 +1,21 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="/logo.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>DUGBUS</title>
+  <title>Design + Code Art • DUGBUS</title>
+
+  <meta name="description" content="Code experiments and art in various formats incuding P5 and vanilla canvas.">
+
+  <link rel="canonical" href="https://dugbus.com/">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+
+  <meta property="og:url" content="https://dugbus.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DUGBUS">
+  <meta property="og:locale" content="en_GB">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,38 +25,19 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="site-header container">
-
-    <a href="/" title="Go to home page">
-      <svg class="site-logo">
-        <use href="/sprites.svg#logo"></use>
-      </svg>
-    </a>
-
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-
-  </header>
+  <load src="src/header.html" />
 
   <main id="main-content">
 
     <section class="container">
-      <h2>Section Title</h2>
-      <p>Section content...</p>
+      <h2>A Tale As Old As Time</h2>
+      <p>New version coming soon...</p>
     </section>
 
   </main>
 
-  <footer class="site-footer container">
-    <p>&copy; 2024 DUGBUS. All rights reserved.</p>
-  </footer>
+  <load src="src/footer.html" />
 
   <script type="module" src="/main.js"></script>
 </body>
