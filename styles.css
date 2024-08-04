@@ -3,20 +3,21 @@
   --font-headings: "Ubuntu", sans-serif;
   --font-system: system-ui, sans-serif;
 
-  --width-l: 90rem;
-  --width-m: 56rem;
-  --width-s: 30rem;
+  --width-large: 90rem;
+  --width-medium: 56rem;
+  --width-small: 30rem;
 
   --grid-gap: 3rem;
   --grid-size: 22rem;
   --text-gap: 2em;
 
-  --container-width: var(--width-l);
+  --container-width: var(--width-large);
   --container-edge: 3rem;
-  --container-padding: 4rem;
+  --container-padding: 3rem;
 
   --color-ink: #16161d;
   --color-paper: #f8f8f8;
+  --color-highlight: #b3d4fc;
 
   --font-scale-xs: clamp(.64rem, calc(.58rem + .28vw), .8rem);
   --font-scale-s: clamp(.8rem, calc(.73rem + .35vw), 1rem);
@@ -49,7 +50,7 @@ html {
 }
 
 ::selection {
-  background: #b3d4fc;
+  background: var(--color-highlight);
   text-shadow: none;
 }
 
@@ -136,16 +137,28 @@ img {
   padding-inline: max(var(--container-edge), calc(50% - var(--container-width)/2))
 }
 
+.width-large {
+  --container-width: var(--width-large);
+}
+
+.width-medium {
+  --container-width: var(--width-medium);
+}
+
+.width-small {
+  --container-width: var(--width-small);
+}
+
 .site-header {
   --container-padding: 1rem;
-  --container-width: var(--width-l);
+  --container-width: var(--width-large);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .site-logo {
-  color: red;
+  color: #e53936;
 
   &:hover {
     color: blue;
@@ -186,12 +199,20 @@ img {
   text-align: center;
 }
 
+.container:has(.scorecard) {
+  background: #90a5a7;
+}
+
 .scorecard {
-  width: 100%;
-  max-width: 100%;
-  margin-block: 2rem;
-  background-color: transparent;
-  border-collapse: collapse;
+
+  overflow-x: auto;
+  padding-top: 1rem;
+
+  table {
+    background-color: transparent;
+    border-collapse: collapse;
+    margin: 0 auto 2rem;
+  }
 
   td {
     text-align: center;

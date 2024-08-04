@@ -3,13 +3,13 @@ import { defineConfig } from 'vite';
 import injectHTML from 'vite-plugin-html-inject';
 
 export default defineConfig({
-    plugins: [injectHTML()],
-    build: {
-        rollupOptions: {
-            input: {
-                main: resolve(__dirname, 'index.html'),
-                nested: resolve(__dirname, 'projects/cubbon-cup/index.html'),
-            }
-        }
+  plugins: [injectHTML()],
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        wordleGolf: resolve(__dirname, 'projects/wordle-golf/index.html'),
+      }
     }
+  }
 });
