@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Canvas Test Card • DUGBUS</title>
+
+  <meta name="description"
+    content="Canvas test card to check rendering on high density screens where the screen pixels and the CSS pixels don't match up.">
+
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <link rel="canonical" href="https://dugbus.com/canvas/test-card">
+
+  <meta property="og:url" content="https://dugbus.com/canvas/test-card">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DUGBUS">
+  <meta property="og:locale" content="en_GB">
+
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      background: blue;
+      font-family: system-ui, sans-serif;
+      height: 100%;
+      margin: 0;
+    }
+
+    canvas {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    .logo {
+      position: absolute;
+      inset: 1rem auto auto 1rem;
+      z-index: 10;
+      width: 4rem;
+      height: auto;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 8;
+      stroke-dasharray: none;
+      stroke-opacity: 1;
+    }
+
+    .info {
+      color: #fff;
+      inset: 1rem 1rem auto auto;
+      position: absolute;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <svg class="logo" width="125" height="125" viewBox="0 0 125 125" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M64.897 160.077c-30.376 0-55 24.624-55 55 .04 23.816 15.405 44.9 38.064 52.235l1.596-34.418-18.69-3.797-3.212-17.23 23.363-4.38 3.504-7.885 13.142-2.921L70 185l7.009.584 3.796 9.053 14.391 66.287a55 55 0 0 0 24.7-45.847c0-30.376-24.623-55-54.999-55z"
+      transform="translate(-3.008 -152.595)" />
+  </svg>
+
+  <div class="info"></div>
+
+  <canvas>
+    Your browser does not support HTML5 canvas, please consider updating or changing your browser for a better
+    experience.
+  </canvas>
+
+  <script>
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+    const dpr = window.devicePixelRatio;
+
+    const { width, height } = canvas.getBoundingClientRect()
+
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+
+    const info = document.querySelector(".info");
+
+    info.innerHTML =
+      `pixel width : ${width}<br>
+      pixel height : ${height}<br>
+      canvas width : ${canvas.width}<br>
+      canvas height : ${canvas.height}<br>
+      dpr :${dpr}`;
+
+    ctx.fillStyle = "red";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#bada55";
+    ctx.fillRect(Math.floor(canvas.width / 4), Math.floor(canvas.height / 4), Math.floor(canvas.width / 2), Math.floor(canvas.height / 2));
+
+    ctx.lineWidth = 1;
+
+    ctx.beginPath();
+    ctx.moveTo(Math.floor(canvas.width / 2), 0);
+    ctx.lineTo(Math.floor(canvas.width / 2), canvas.height);
+    ctx.moveTo(0, Math.floor(canvas.height / 2));
+    ctx.lineTo(canvas.width, Math.floor(canvas.height / 2));
+    ctx.stroke();
+  </script>
+</body>
+
+</html>

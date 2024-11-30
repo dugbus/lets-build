@@ -8,7 +8,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        wordleGolf: resolve(__dirname, 'projects/wordle-golf/index.html'),
       }
     }
   }
