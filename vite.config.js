@@ -1,4 +1,3 @@
-import { resolve } from 'path'
 import { defineConfig } from 'vite';
 import injectHTML from 'vite-plugin-html-inject';
 
@@ -7,7 +6,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
+        main: 'index.html',
+        wordleGolf: 'projects/wordle-golf/index.html',
+        canvasTestCard: 'canvas/test-card/index.html',
       }
     }
   }
