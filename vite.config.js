@@ -9,7 +9,7 @@ export default defineConfig({
         main: 'index.html',
         wordleGolf: 'projects/wordle-golf/index.html',
         canvasTestCard: 'canvas/test-card/index.html',
-        canvasWipeout: 'canvas/wipeout/index.html',
+        canvasWipeout: 'p5/wipeout/index.html',
       }
     }
   }
