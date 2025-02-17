@@ -1,137 +1,122 @@
 <!DOCTYPE html>
 <html lang="en-GB" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wipeout • DUGBUS</title>
 
-  <title>Wipeout • DUGBUS</title>
+    <meta
+      name="description"
+      content="Underground style map lines that remind me of Wipeout on the PlayStation."
+    >
 
-  <meta name="description" content="Code experiments and art in various formats incuding P5 and vanilla canvas.">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="canonical" href="https://dugbus.com/p5/wipeout">
 
-  <link rel="icon" type="image/svg+xml" href="/logo.svg">
-  <link rel="canonical" href="https://dugbus.com/canvas/wipeout">
+    <meta property="og:url" content="https://dugbus.com/p5/wipeout">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DUGBUS">
+    <meta property="og:locale" content="en_GB">
 
-  <meta property="og:url" content="https://dugbus.com/canvas/wipeout">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="DUGBUS">
-  <meta property="og:locale" content="en_GB">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"
+    ></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
-
-  <style>
-    html {
-      height: 100%;
-    }
-
-    body {
-      background: linear-gradient(120deg, rgb(46, 49, 146) 0%, rgb(27, 255, 255) 100%);
-      font-family: system-ui, sans-serif;
-      height: 100%;
-      margin: 0;
-    }
-
-    canvas {
-      display: block;
-    }
-
-    .logo {
-      position: absolute;
-      inset: 1rem auto auto 1rem;
-      z-index: 10;
-      width: 4rem;
-      height: auto;
-      fill: none;
-      stroke: #fff;
-      stroke-width: 8;
-      stroke-dasharray: none;
-      stroke-opacity: 1;
-      paint-order: stroke fill markers
-    }
-
-    .info {
-      color: #fff;
-      inset: 1rem 1rem auto auto;
-      position: absolute;
-      z-index: 10;
-    }
-  </style>
-
-</head>
-
-<body>
-
-  <load src="/components/header.html" />
-
-  <script type="module" src="/main.js"></script>
-
-  <script>
-    const count = 16;
-    const walkers = [];
-    const minLineWidth = 5;
-    const maxLineWidth = 15
-    let hurry = 0
-
-    function setup() {
-      createCanvas(windowWidth, windowHeight);
-      ellipseMode(CENTER);
-      noStroke();
-      frameRate(60);
-
-      for (let i = 0; i < count; i++) {
-        const w = new Walker(-20, random(height), random(minLineWidth, maxLineWidth), 0, 0);
-        walkers.push(w);
+    <style>
+      html {
+        height: 100%;
       }
-    }
 
-    function draw() {
-
-      hurry = 0;
-
-      while (hurry < count * 30) {
-
-        walkers.forEach(el => {
-          fill(((255 / height) * (height - el.y)));
-          circle(el.x, el.y, el.r)
-          el.x = el.x + 1;
-          el.y = el.y + el.a;
-          el.c = el.c - 1;
-          if (el.c > 0) {
-            return;
-          }
-
-          let turn = random(100);
-
-          if (turn > 99.5) {
-            el.a = 1;
-            el.c = 100;
-            return;
-          }
-
-          if ((turn > 49) && (turn < 50)) {
-            el.a = 0;
-            el.c = 50;
-            return;
-          }
-
-          if (turn < 0.5) {
-            el.a = -1;
-            el.c = 100;
-            return;
-          }
-        })
-        hurry = hurry + 1
+      body {
+        background: linear-gradient(
+          120deg,
+          rgb(46, 49, 146) 0%,
+          rgb(27, 255, 255) 100%
+        );
+        font-family: system-ui, sans-serif;
+        height: 100%;
+        margin: 0;
+        position: relative;
       }
-    }
 
-    function Walker(x, y, r, a, c) {
-      this.x = x;
-      this.y = y;
-      this.r = r;
-      this.a = a;
-      this.c = c;
-    }
-  </script>
-</body>
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
 
+  <body>
+    <script>
+      const count = 16;
+      const walkers = [];
+      const minLineWidth = 5;
+      const maxLineWidth = 15;
+      let hurry = 0;
+
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        ellipseMode(CENTER);
+        noStroke();
+        frameRate(60);
+
+        for (let i = 0; i < count; i++) {
+          const w = new Walker(
+            -20,
+            random(height),
+            random(minLineWidth, maxLineWidth),
+            0,
+            0,
+          );
+          walkers.push(w);
+        }
+      }
+
+      function draw() {
+        hurry = 0;
+
+        while (hurry < count * 30) {
+          walkers.forEach((el) => {
+            fill((255 / height) * (height - el.y));
+            circle(el.x, el.y, el.r);
+            el.x = el.x + 1;
+            el.y = el.y + el.a;
+            el.c = el.c - 1;
+            if (el.c > 0) {
+              return;
+            }
+
+            let turn = random(100);
+
+            if (turn > 99.5) {
+              el.a = 1;
+              el.c = 100;
+              return;
+            }
+
+            if ((turn > 49) && (turn < 50)) {
+              el.a = 0;
+              el.c = 50;
+              return;
+            }
+
+            if (turn < 0.5) {
+              el.a = -1;
+              el.c = 100;
+              return;
+            }
+          });
+          hurry = hurry + 1;
+        }
+      }
+
+      function Walker(x, y, r, a, c) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.a = a;
+        this.c = c;
+      }
+    </script>
+  </body>
 </html>

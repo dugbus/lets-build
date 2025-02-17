@@ -10,6 +10,7 @@ export default defineConfig({
         wordleGolf: 'projects/wordle-golf/index.html',
         canvasTestCard: 'canvas/test-card/index.html',
         canvasWipeout: 'p5/wipeout/index.html',
+        perlinContours: 'p5/perlin-contours/index.html',
       }
     }
   }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perlin Contours • DUGBUS</title>
+
+    <meta
+      name="description"
+      content="Using Perlin noise to trace the contour lines of the mathematical space."
+    >
+
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="canonical" href="https://dugbus.com/p5/parlin-contours">
+
+    <meta property="og:url" content="https://dugbus.com/p5/perlin-contours">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DUGBUS">
+    <meta property="og:locale" content="en_GB">
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"
+    ></script>
+
+    <style>
+      html {
+        height: 100%;
+      }
+
+      body {
+        background: linear-gradient(
+          120deg,
+          rgb(46, 49, 146) 0%,
+          rgb(27, 255, 255) 100%
+        );
+        font-family: system-ui, sans-serif;
+        height: 100%;
+        margin: 0;
+        position: relative;
+      }
+
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      let particles = [];
+      const num = 100;
+      const noiseScale = 0.01;
+
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        for (let i = 0; i < num; i++) {
+          particles.push(
+            createVector(
+              random(width),
+              random(height),
+            ),
+          );
+        }
+
+        background(20);
+        stroke(255, 10);
+      }
+
+      function draw() {
+        for (p of particles) {
+          point(p.x, p.y);
+          let n = noise(
+            p.x * noiseScale,
+            p.y * noiseScale,
+          );
+          let a = TAU * n * 8;
+          p.x += cos(a);
+          p.y += sin(a);
+          if (offScreen(p)) {
+            p.x = random(width);
+            p.y = random(height);
+          }
+        }
+      }
+
+      function offScreen(v) {
+        return v.x < 0 || v.x > width || v.y < 0 ||
+          v.y > height;
+      }
+    </script>
+  </body>
+</html>

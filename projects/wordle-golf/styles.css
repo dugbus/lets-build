@@ -1,0 +1,90 @@
+@import url("/base.css");
+
+.container:has(.scorecard) {
+  background: #e6e6e6;
+}
+
+.scorecard {
+  overflow-x: auto;
+  padding-top: 1rem;
+
+  table {
+    background-color: transparent;
+    border-collapse: collapse;
+    margin: 0 auto 2rem;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  .hole {
+    font-size: var(--font-scale-m);
+  }
+
+  .par {
+    font-size: var(--font-scale-s);
+  }
+
+  td[class^="score"] {
+    padding: 0.25rem;
+  }
+
+  td[class^="score"] span {
+    aspect-ratio: 1;
+    background: var(--clr-score, #eee);
+    display: grid;
+    place-content: center;
+    border-radius: 100%;
+    font-weight: 900;
+    width: 2.5rem;
+    margin: 0 auto;
+  }
+
+  .score-1 span {
+    --clr-score: #6aaa64;
+  }
+
+  .score-2 span {
+    --clr-score: #6aaa64;
+  }
+
+  .score-3 span {
+    --clr-score: #6aaa64;
+  }
+
+  .score-4 span {
+    --clr-score: #ccc;
+  }
+
+  .score-5 span {
+    --clr-score: hsl(49, 51%, 57%);
+  }
+
+  .score-6 span {
+    --clr-score: hsl(33, 51%, 57%);
+  }
+
+  .score-7 span {
+    --clr-score: hsl(25, 51%, 57%);
+  }
+
+  .box span {
+    aspect-ratio: 1;
+    background: var(--clr-score, #fff);
+    display: grid;
+    place-content: center;
+    border-radius: 0.25rem;
+    font-weight: 900;
+    width: 2.5rem;
+    margin: 0 auto;
+  }
+
+  .name {
+    padding-right: 2rem;
+  }
+}

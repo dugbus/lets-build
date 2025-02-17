@@ -28,72 +28,244 @@
       href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu:wght@500&display=swap"
       rel="stylesheet"
     >
+    <link rel="stylesheet" href="/styles.css">
   </head>
 
   <body>
-    <load src="/components/header.html" />
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <section id="filters" class="filters">
-      <button class="filter-button active" data-filter="all">All</button>
-      <button class="filter-button" data-filter="post">Post</button>
-      <button class="filter-button" data-filter="p5">p5</button>
-      <button class="filter-button" data-filter="canvas">Canvas</button>
-    </section>
+    <header class="site-header">
+      <a href="/" class="site-logo" title="Go to home page">
+        <svg>
+          <use href="/sprites.svg#logo"></use>
+        </svg>
+      </a>
+
+      <h1 class="site-title">Projects</h1>
+    </header>
 
     <main id="main-content">
-      <h1 class="projects-title">Projects</h1>
+      <section class="projects">
+        <div id="filters" class="filters">
+          <button class="filter-button active" data-filter="all">All</button>
+          <button class="filter-button" data-filter="post">Post</button>
+          <button class="filter-button" data-filter="p5">p5</button>
+          <button class="filter-button" data-filter="canvas">Canvas</button>
+        </div>
 
-      <section class="projects-list">
-        <article
-          class="project"
-          data-filter="post"
-          data-url="/projects/wordle-golf/"
-          role="link"
-        >
-          <svg>
-            <use href="/sprites.svg#link"></use>
-          </svg>
-          <h2>Wordle Golf</h2>
-          <p>How we invented a game the NYT had already invented.</p>
-        </article>
+        <ul class="projects-list">
+          <li
+            class="project"
+            data-filter="p5"
+            data-url="/p5/perlin-contours/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Perlin Contours</h2>
+            <p>
+              Using Perlin noise to trace the contour lines of the mathematical
+              space.
+            </p>
+          </li>
 
-        <article
-          class="project"
-          data-filter="p5"
-          data-url="/p5/wipeout/"
-          role="link"
-        >
-          <svg>
-            <use href="/sprites.svg#link"></use>
-          </svg>
-          <h2>Wipeout</h2>
-          <p>
-            A p5.js project to render subway style lines that remind me of
-            Wipeout.
-          </p>
-        </article>
+          <li
+            class="project"
+            data-filter="post"
+            data-url="/projects/wordle-golf/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Wordle Golf</h2>
+            <p>How we invented a game the NYT had already invented.</p>
+          </li>
 
-        <article
-          class="project"
-          data-filter="canvas"
-          data-url="/canvas/test-card/"
-          role="link"
-        >
-          <svg>
-            <use href="/sprites.svg#link"></use>
-          </svg>
-          <h2>Test Card</h2>
-          <p>
-            Forever running into issues with vanilla canvas projects. This might
-            help.
-          </p>
-        </article>
+          <li
+            class="project"
+            data-filter="p5"
+            data-url="/p5/wipeout/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Wipeout</h2>
+            <p>
+              A p5.js project to render subway style lines that remind me of
+              Wipeout.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+
+          <li
+            class="project"
+            data-filter="canvas"
+            data-url="/canvas/test-card/"
+            role="link"
+          >
+            <img src="wipeout-thumb.jpg" alt="Wipeout image">
+            <h2>Test Card</h2>
+            <p>
+              Forever running into issues with vanilla canvas projects. This
+              might help.
+            </p>
+          </li>
+        </ul>
       </section>
     </main>
 
     <load src="/components/footer.html" />
 
-    <script type="module" src="/main.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const filters = document.querySelector("#filters");
