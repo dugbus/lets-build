@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Scrypt • DUGBUS</title>
+
+        <meta
+            name="description"
+            content="Quick prototype for a draggable list."
+        >
+
+        <link rel="canonical" href="https://dugbus.com/code/scrypt">
+        <link rel="icon" type="image/svg+xml" href="/logo.svg">
+
+        <meta property="og:url" content="https://dugbus.com/code/scrypt">
+        <meta property="og:image" content="http://dugbus.com/social-image.jpg">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="DUGBUS">
+        <meta property="og:locale" content="en_GB">
+
+        <meta name="twitter:site" content="@dugbus">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu:wght@500&display=swap"
+            rel="stylesheet"
+        >
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="grid-container" id="grid">
+            <div class="grid-item" draggable="true">
+                <h2>INT. TED'S LIVING ROOM - DAY</h2>
+                <p>TED and RON watch televsision and argue.</p>
+                <svg>
+                    <use href="/sprites.svg#edit"></use>
+                </svg>
+            </div>
+            <div class="grid-item" draggable="true">
+                <h2>EXT. BUS STOP - DAY</h2>
+                <p>TED tries to get a bus.</p>
+                <svg>
+                    <use href="/sprites.svg#edit"></use>
+                </svg>
+            </div>
+            <div class="grid-item" draggable="true">
+                <h2>EXT. JENKINS SPORTS - DAY</h2>
+                <p>TED goes to buy gear.</p>
+                <svg>
+                    <use href="/sprites.svg#edit"></use>
+                </svg>
+            </div>
+            <div class="grid-item" draggable="true">
+                <h2>INT. JENKINS SPORTS - DAY</h2>
+                <p>TED buys trainers.</p>
+                <svg>
+                    <use href="/sprites.svg#edit"></use>
+                </svg>
+            </div>
+            <div class="grid-item" draggable="true">
+                <h2>INT. TED'S LIVING ROOM - DAY</h2>
+                <p>TED fuels up.</p>
+                <svg>
+                    <use href="/sprites.svg#edit"></use>
+                </svg>
+            </div>
+            <div class="grid-item" draggable="true">
+                <h2>INT. MRS MAGINS WINDOW - DAY</h2>
+                <p>Mrs Magin expresses her opinion.</p>
+                <svg>
+                    <use href="/sprites.svg#edit"></use>
+                </svg>
+            </div>
+            <div class="grid-item" draggable="true">
+                <h2>EXT. TED'S STREET - DAY</h2>
+                <p>TED begins his journey with a near miss.</p>
+                <svg>
+                    <use href="/sprites.svg#edit"></use>
+                </svg>
+            </div>
+            <div class="grid-item" draggable="true">
+                <h2>INT. YOBS CAR - DAY</h2>
+                <p>A near hit and run.</p>
+                <svg>
+                    <use href="/sprites.svg#edit"></use>
+                </svg>
+            </div>
+        </div>
+
+        <script>
+            const colours = generateHslaColors(
+                100,
+                30,
+                1.0,
+                20,
+            );
+            const headings = document.querySelectorAll(
+                ".grid-item h2",
+            );
+
+            for (let heading of headings) {
+                heading.style.backgroundColor =
+                    colours[Math.floor(Math.random() * 19)];
+            }
+
+            function generateHslaColors(
+                saturation,
+                lightness,
+                alpha,
+                amount,
+            ) {
+                let colours = [];
+                let huedelta = Math.trunc(360 / amount);
+
+                for (let i = 0; i < amount; i++) {
+                    let hue = i * huedelta;
+                    colours.push(
+                        `hsla(${hue},${saturation}%,${lightness}%,${alpha})`,
+                    );
+                }
+
+                return colours;
+            }
+
+            const grid = document.getElementById("grid");
+            let draggedItem = null;
+
+            grid.addEventListener("dragstart", (e) => {
+                draggedItem = e.target;
+                e.target.classList.add("dragging");
+            });
+
+            grid.addEventListener("dragend", (e) => {
+                e.target.classList.remove("dragging");
+                draggedItem = null;
+            });
+
+            grid.addEventListener("dragover", (e) => {
+                e.preventDefault(); // Allow drop
+            });
+
+            grid.addEventListener("dragenter", (e) => {
+                if (e.target.classList.contains("grid-item")) {
+                    e.preventDefault(); // Prevent default to allow drop
+                }
+            });
+
+            grid.addEventListener("drop", (e) => {
+                if (
+                    e.target.classList.contains("grid-item") &&
+                    e.target !== draggedItem
+                ) {
+                    const targetIndex = Array.from(
+                        grid.children,
+                    ).indexOf(e.target);
+                    const draggedIndex = Array.from(
+                        grid.children,
+                    ).indexOf(draggedItem);
+
+                    if (targetIndex < draggedIndex) {
+                        grid.insertBefore(
+                            draggedItem,
+                            e.target,
+                        );
+                    } else {
+                        grid.insertBefore(
+                            draggedItem,
+                            e.target.nextSibling,
+                        );
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

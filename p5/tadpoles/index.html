@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Tadpoles • DUGBUS</title>
+
+        <meta
+            name="description"
+            content="Tadpole simulator."
+        >
+
+        <link rel="canonical" href="https://dugbus.com/p5/tadpoles">
+        <link rel="icon" type="image/svg+xml" href="/logo.svg">
+
+        <meta property="og:url" content="https://dugbus.com/p5/tadpoles">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="DUGBUS">
+        <meta property="og:locale" content="en_GB">
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"
+        ></script>
+
+        <style>
+            html {
+                height: 100%;
+            }
+
+            body {
+                background: linear-gradient(
+                    120deg,
+                    rgb(46, 49, 146) 0%,
+                    rgb(27, 255, 255) 100%
+                );
+                font-family: system-ui, sans-serif;
+                height: 100%;
+                margin: 0;
+                position: relative;
+            }
+
+            canvas {
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <script>
+            let balls = [];
+            let count = 100;
+            let noiseScale = 0.005;
+
+            function setup() {
+                createCanvas(windowWidth, windowHeight);
+                noStroke();
+                fill(0);
+                noiseSeed(42);
+                randomSeed(42);
+                populate();
+            }
+
+            function draw() {
+                background(100, 200, 255, 100);
+
+                for (let el of balls) {
+                    change(el);
+                    render(el);
+                }
+            }
+
+            function populate() {
+                for (let i = 0; i < count; i++) {
+                    let ball = {};
+                    ball.position = createVector(
+                        random(width),
+                        random(height),
+                    );
+                    ball.mass = random(5, 10);
+                    ball.velocity = createVector(
+                        random(0, 1),
+                        random(0, 1),
+                    );
+                    ball.acceleration = createVector(0, 0);
+                    balls.push(ball);
+                }
+            }
+
+            function change(el) {
+                let angle = map(
+                    noise(
+                        el.position.x * noiseScale,
+                        el.position.y * noiseScale,
+                    ),
+                    0,
+                    1,
+                    0,
+                    1440,
+                );
+
+                el.acceleration = createVector(
+                    cos(angle),
+                    sin(angle),
+                );
+
+                el.velocity.add(el.acceleration);
+
+                el.velocity.limit(4);
+
+                el.position.add(el.velocity);
+
+                if (el.position.x > width) {
+                    el.position.x = 0;
+                }
+
+                if (el.position.x < 0) {
+                    el.position.x = width;
+                }
+
+                if (el.position.y > height) {
+                    el.position.y = 0;
+                }
+
+                if (el.position.y < 0) {
+                    el.position.y = height;
+                }
+            }
+
+            function render(el) {
+                circle(
+                    el.position.x,
+                    el.position.y,
+                    el.mass * 2,
+                );
+            }
+        </script>
+    </body>
+</html>
