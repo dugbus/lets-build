@@ -1,11 +1,7 @@
 @import url("/base.css");
 
 body {
-  background: linear-gradient(
-    270deg,
-    rgb(46, 49, 146) 0%,
-    rgb(27, 255, 255) 100%
-  );
+  background: url(blobs.svg) var(--color-paper) no-repeat center center / cover;
 }
 
 .projects {
@@ -30,7 +26,7 @@ body {
   cursor: pointer;
   grid-template-rows: 1fr;
   height: auto;
-  min-height: 100px;
+  min-height: 14rem;
   padding: 1.75rem 1.5rem;
   position: relative;
   text-align: left;
@@ -59,11 +55,29 @@ body {
 }
 
 .project h2 {
-  margin: 0.75rem 0 0.75rem;
+  margin: 1.75rem 0 0.75rem;
   line-height: 1.375;
   text-wrap: balance;
   font-weight: 500;
   font-size: var(--font-scale-m);
+}
+
+.project p {
+  font-size: var(--font-scale-s);
+}
+
+.project svg {
+  width: 1.75rem;
+  aspect-ratio: 1;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  fill: rgba(255 0 128 / 0.05);
+  transition: fill var(--transition-time) ease;
+}
+
+.project:hover svg {
+  fill: rgba(255 0 128 / 0.35);
 }
 
 .filters {

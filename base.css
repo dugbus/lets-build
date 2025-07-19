@@ -16,7 +16,7 @@
   --container-padding: 3rem;
 
   --color-ink: #16161d;
-  --color-paper: #f8f8f8;
+  --color-paper: #f4f4f4;
   --color-highlight: #b3d4fc;
   --color-white: #fff;
   --color-brand: #cba328;
@@ -163,12 +163,12 @@ img {
 }
 
 .site-header {
-  --container-padding: 1rem;
+  --container-padding: 2.25rem;
   --container-width: var(--width-large);
   align-items: center;
   display: flex;
   gap: 1rem;
-  padding: var(--container-padding);
+  padding: var(--container-padding) 1.5rem;
 }
 
 .site-title {
@@ -181,6 +181,7 @@ img {
     #2692c6 100%
   );
   color: transparent;
+  mix-blend-mode: difference;
 }
 
 .site-logo {

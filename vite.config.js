@@ -14,6 +14,7 @@ export default defineConfig({
         p5PerlinContours: 'p5/perlin-contours/index.html',
         p5ChaosCircles: 'p5/chaos-circles/index.html',
         p5Tadpoles: 'p5/tadpoles/index.html',
+        p5CrowdedHouse: 'p5/crowded-house/index.html',
       }
     }
   }

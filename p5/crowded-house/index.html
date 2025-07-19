@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chaos Circles • DUGBUS</title>
+
+    <meta name="description" content="Vibrating circles. Can you hear them?">
+
+    <link rel="canonical" href="https://dugbus.com/p5/chaos-circles">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+
+    <meta property="og:url" content="https://dugbus.com/p5/chaos-circles">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DUGBUS">
+    <meta property="og:locale" content="en_GB">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            background: linear-gradient(120deg,
+                    rgb(46, 49, 146) 0%,
+                    rgb(27, 255, 255) 100%);
+            font-family: system-ui, sans-serif;
+            height: 100%;
+            margin: 0;
+            position: relative;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        #stats {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 1rem;
+            color: white;
+            font-size: 1.5rem;
+            font-family: monospace;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="stats">
+    </div>
+    <script>
+        let count = 300
+        let mass = 0.4
+        let stars = []
+        let fr = 0
+        let canvasImage
+
+        const stats = document.getElementById('stats')
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight, WEBGL);
+            imageMode(CENTER);
+
+            for (let i = 0; i < count; i++) {
+                let s = new Star()
+                stars.push(s)
+            }
+
+            blackHole = new Hole(0, 0, 0, 40, 4)
+        }
+
+        function draw() {
+            //background(20, 0, 0)
+            canvasImage = get();
+            background(20, 0, 0)
+            image(canvasImage, 0, 0);
+
+            orbitControl(4, 4)
+
+            blackHole.move()
+            //blackHole.show()
+
+            for (let s of stars) {
+                s.move()
+                s.show()
+                blackHole.attract(s)
+            }
+
+            fr = round((fr + frameRate()) * 0.5)
+            stats.innerHTML = `FR : ${fr}<br>CT : ${stars.length}`
+            if (fr < 30) {
+                stars.shift()
+            }
+            if (fr > 36) {
+                let s = new Star()
+                stars.push(s)
+            }
+        }
+
+        class Hole {
+            constructor(x, y, z, m, G) {
+                this.pos = createVector(x, y, z)
+                this.vel = createVector(x, y, z)
+                this.acc = createVector(x, y, z)
+                this.mass = m
+                this.r = sqrt(this.mass) * 2
+                this.G = G
+            }
+
+            show() {
+                stroke(255, 191, 0);
+                strokeWeight(this.mass);
+                point(this.pos.x, this.pos.y, this.pos.z)
+            }
+
+            move() {
+                let mover = createVector(0, 0, 0)
+                for (let s of stars) {
+                    mover.add(s.pos)
+                }
+                mover.div(count)
+                this.acc = mover
+                this.vel.add(this.acc)
+                this.pos = mover
+                //this.acc.set(0, 0, 0);
+            }
+
+            attract(star) {
+                let force = p5.Vector.sub(this.pos, star.pos);
+                let distanceSq = constrain(force.magSq(), 100, 1000);
+                let strength = this.G * (this.mass * star.mass) / distanceSq;
+                force.setMag(strength);
+                star.applyForce(force);
+            }
+        }
+
+        class Star {
+            constructor() {
+                this.pos = createVector(random(-width / 2, width / 2), random(-height / 2, height / 2), random(-height / 2, height / 2));
+                this.vel = createVector(0, 0, 0)
+                this.acc = createVector(0, 0, 0)
+                this.mass = random(1, 10)
+                this.r = sqrt(this.mass) * 2
+            }
+
+            show() {
+                stroke(this.vel.x * 50, this.vel.y * 50, this.vel.z * 50);
+                strokeWeight(this.mass * 3);
+                point(this.pos.x, this.pos.y, this.pos.z)
+                //ellipse(this.pos.x, this.pos.y, this.r * 2)
+            }
+
+            applyForce(force) {
+                let f = p5.Vector.div(force, this.mass);
+                this.acc.add(f);
+            }
+
+            move() {
+                this.vel.add(this.acc);
+                this.pos.add(this.vel);
+
+                this.vel.limit(7);
+                this.acc.set(0, 0);
+            }
+        }
+    </script>
+</body>
+
+</html>

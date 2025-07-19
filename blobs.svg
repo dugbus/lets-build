@@ -1,0 +1,18 @@
+<svg viewBox="-80 -80 160 160" xmlns="http://www.w3.org/2000/svg">
+  <path id="bloba" fill="rgba(138 63 252 / 50%" d="M64.7,-24C69.8,-5.4,50.1,18.2,25.7,36.1C1.3,54,-27.8,66.1,-39.1,57.1C-50.4,48.1,-44,18,-34.5,-6.7C-25,-31.4,-12.5,-50.5,8.7,-53.4C29.8,-56.2,59.7,-42.6,64.7,-24Z">
+      <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="0 0 0"      to="360 0 0"      dur="20s"
+      repeatCount="indefinite" />
+  </path>
+  <path id="blobb" fill="rgba(255 0 102 / 50%" d="M55.4,-41.1C70.4,-25.5,80,-2.5,73.3,12.7C66.6,27.9,43.6,35.4,23.5,42.9C3.3,50.4,-14.1,58,-27,53C-39.8,47.9,-48,30.4,-51.7,12.4C-55.3,-5.7,-54.4,-24.2,-45.1,-38.6C-35.7,-53,-17.8,-63.2,1.2,-64.2C20.2,-65.1,40.5,-56.8,55.4,-41.1Z">
+        <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="360 0 0"   to="0 0 0"      dur="20s"
+      repeatCount="indefinite" />
+  </path>
+</svg>

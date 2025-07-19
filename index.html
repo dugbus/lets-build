@@ -1,195 +1,181 @@
 <!DOCTYPE html>
 <html lang="en-GB" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Design + Code Art • DUGBUS</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-      name="description"
-      content="Code experiments and art in various formats incuding P5 and vanilla canvas."
-    >
+  <title>Design + Code Art • DUGBUS</title>
 
-    <link rel="canonical" href="https://dugbus.com/">
-    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <meta name="description" content="Code experiments and mini projects.">
 
-    <meta property="og:url" content="https://dugbus.com/">
-    <meta property="og:image" content="http://dugbus.com/social-image.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="DUGBUS">
-    <meta property="og:locale" content="en_GB">
+  <link rel="canonical" href="https://dugbus.com/">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
 
-    <meta name="twitter:site" content="@dugbus">
+  <meta property="og:url" content="https://dugbus.com/">
+  <meta property="og:image" content="http://dugbus.com/social-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DUGBUS">
+  <meta property="og:locale" content="en_GB">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu:wght@500&display=swap"
-      rel="stylesheet"
-    >
-    <link rel="stylesheet" href="/styles.css">
-  </head>
+  <meta name="twitter:site" content="@dugbus">
 
-  <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
 
-    <header class="site-header">
-      <a href="/" class="site-logo" title="Go to home page">
-        <svg>
-          <use href="/sprites.svg#logo"></use>
-        </svg>
-      </a>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-      <h1 class="site-title">Projects</h1>
-    </header>
+  <header class="site-header">
+    <a href="/" class="site-logo" title="Go to home page">
+      <svg>
+        <use href="/sprites.svg#logo"></use>
+      </svg>
+    </a>
 
-    <main id="main-content">
-      <section class="projects">
-        <div id="filters" class="filters">
-          <button class="filter-button active" data-filter="all">All</button>
-          <button class="filter-button" data-filter="canvas">Canvas</button>
-          <button class="filter-button" data-filter="code">Code</button>
-          <button class="filter-button" data-filter="p5">p5</button>
-          <button class="filter-button" data-filter="text">Text</button>
-        </div>
+    <h1 class="site-title">Code Experiments and Mini Projects</h1>
+  </header>
 
-        <ul class="projects-list">
-          <li
-            class="project"
-            data-filter="p5"
-            data-url="/p5/perlin-contours/"
-            role="link"
-          >
-            <img src="wipeout-thumb.jpg" alt="Wipeout image">
-            <h2>Perlin Contours</h2>
-            <p>
-              Using Perlin noise to trace the contour lines of the mathematical
-              space.
-            </p>
-          </li>
+  <main id="main-content">
+    <section class="projects">
+      <div id="filters" class="filters">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="canvas">Canvas</button>
+        <button class="filter-button" data-filter="code">Code</button>
+        <button class="filter-button" data-filter="p5">p5</button>
+        <button class="filter-button" data-filter="text">Text</button>
+      </div>
 
-          <li
-            class="project"
-            data-filter="text"
-            data-url="/text/wordle-golf/"
-            role="link"
-          >
-            <img src="wipeout-thumb.jpg" alt="Wipeout image">
-            <h2>Wordle Golf</h2>
-            <p>How we invented a game the NYT had already invented.</p>
-          </li>
+      <ul class="projects-list">
+        <li class="project" data-filter="p5" data-url="/p5/perlin-contours/" role="link">
+          <h2>Cavern Mapper</h2>
+          <p>
+            Using Perlin noise to trace the contour lines a colossal cavern complex.
+          </p>
+          <svg>
+            <use href="/sprites.svg#link"></use>
+          </svg>
+        </li>
 
-          <li
-            class="project"
-            data-filter="p5"
-            data-url="/p5/wipeout/"
-            role="link"
-          >
-            <img src="wipeout-thumb.jpg" alt="Wipeout image">
-            <h2>Wipeout</h2>
-            <p>
-              A p5.js project to render subway style lines that remind me of
-              Wipeout.
-            </p>
-          </li>
+        <li class="project" data-filter="text" data-url="/text/wordle-golf/" role="link">
+          <h2>Wordle Golf</h2>
+          <p>How we invented a game the NYT had already invented.</p>
+          <svg>
+            <use href="/sprites.svg#link"></use>
+          </svg>
+        </li>
 
-          <li
-            class="project"
-            data-filter="canvas"
-            data-url="/canvas/test-card/"
-            role="link"
-          >
-            <img src="wipeout-thumb.jpg" alt="Wipeout image">
-            <h2>Test Card</h2>
-            <p>
-              Forever running into issues with vanilla canvas projects. This
-              might help.
-            </p>
-          </li>
+        <li class="project" data-filter="p5" data-url="/p5/wipeout/" role="link">
+          <h2>Wipeout</h2>
+          <p>
+            A p5.js project to render subway style lines that remind me of
+            Wipeout.
+          </p>
+          <svg>
+            <use href="/sprites.svg#link"></use>
+          </svg>
+        </li>
 
-          <li
-            class="project"
-            data-filter="code"
-            data-url="/code/scrypt/"
-            role="link"
-          >
-            <img src="wipeout-thumb.jpg" alt="Wipeout image">
-            <h2>Scrypt</h2>
-            <p>
-              Mini prototype for an editor
-            </p>
-          </li>
+        <li class="project" data-filter="canvas" data-url="/canvas/test-card/" role="link">
+          <h2>Test Card</h2>
+          <p>
+            Forever running into issues with vanilla canvas projects. This
+            might help.
+          </p>
+          <svg>
+            <use href="/sprites.svg#link"></use>
+          </svg>
+        </li>
 
-          <li
-            class="project"
-            data-filter="p5"
-            data-url="/p5/chaos-circles/"
-            role="link"
-          >
-            <img src="wipeout-thumb.jpg" alt="Wipeout image">
-            <h2>Chaos Circles</h2>
-            <p>
-              What song do you hear?
-            </p>
-          </li>
+        <li class="project" data-filter="code" data-url="/code/scrypt/" role="link">
+          <h2>Scrypt</h2>
+          <p>
+            Mini prototype for an editor
+          </p>
+          <svg>
+            <use href="/sprites.svg#link"></use>
+          </svg>
+        </li>
 
-          <li
-            class="project"
-            data-filter="p5"
-            data-url="/p5/tadpoles/"
-            role="link"
-          >
-            <img src="wipeout-thumb.jpg" alt="Wipeout image">
-            <h2>Tadpoles</h2>
-            <p>
-              Who will survive?
-            </p>
-          </li>
-        </ul>
-      </section>
-    </main>
+        <li class="project" data-filter="p5" data-url="/p5/chaos-circles/" role="link">
+          <h2>Chaos Circles</h2>
+          <p>
+            What song do you hear?
+          </p>
+          <svg>
+            <use href="/sprites.svg#link"></use>
+          </svg>
+        </li>
 
-    <load src="/components/footer.html" />
+        <li class="project" data-filter="p5" data-url="/p5/tadpoles/" role="link">
+          <h2>Tadpoles</h2>
+          <p>
+            Who will survive?
+          </p>
+          <svg>
+            <use href="/sprites.svg#link"></use>
+          </svg>
+        </li>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const filters = document.querySelector("#filters");
-        const projectsList = document.querySelector(".projects-list");
-        const projects = document.querySelectorAll(".project");
+        <li class="project" data-filter="p5" data-url="/p5/crowded-house/" role="link">
+          <h2>Crowded House</h2>
+          <p>
+            Circular mayhem
+          </p>
+          <svg>
+            <use href="/sprites.svg#link"></use>
+          </svg>
+        </li>
+      </ul>
+    </section>
+  </main>
 
-        projectsList.addEventListener("click", (event) => {
-          const project = event.target.closest(".project");
+  <load src="/components/footer.html" />
 
-          if (project) {
-            const url = project.dataset.url;
-            if (url) {
-              window.location.href = url;
-            }
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const filters = document.querySelector("#filters");
+      const projectsList = document.querySelector(".projects-list");
+      const projects = document.querySelectorAll(".project");
+
+      projectsList.addEventListener("click", (event) => {
+        const project = event.target.closest(".project");
+
+        if (project) {
+          const url = project.dataset.url;
+          if (url) {
+            window.location.href = url;
+          }
+        }
+      });
+
+      filters.addEventListener("click", function (event) {
+        const filter = event.target.dataset.filter;
+
+        filters.querySelectorAll(".filter-button").forEach((btn) =>
+          btn.classList.remove("active")
+        );
+        event.target.classList.add("active");
+
+        projects.forEach((project) => {
+          if (filter === "all" || project.dataset.filter === filter) {
+            project.classList.add("show");
+            project.classList.remove("hide");
+            project.removeAttribute("aria-hidden");
+          } else {
+            project.classList.add("hide");
+            project.classList.remove("show");
+            project.setAttribute("aria-hidden", "true");
           }
         });
-
-        filters.addEventListener("click", function (event) {
-          const filter = event.target.dataset.filter;
-
-          filters.querySelectorAll(".filter-button").forEach((btn) =>
-            btn.classList.remove("active")
-          );
-          event.target.classList.add("active");
-
-          projects.forEach((project) => {
-            if (filter === "all" || project.dataset.filter === filter) {
-              project.classList.add("show");
-              project.classList.remove("hide");
-              project.removeAttribute("aria-hidden");
-            } else {
-              project.classList.add("hide");
-              project.classList.remove("show");
-              project.setAttribute("aria-hidden", "true");
-            }
-          });
-        });
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
