@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Chaos Circles • DUGBUS</title>
+    <title>Crowded House • DUGBUS</title>
 
-    <meta name="description" content="Vibrating circles. Can you hear them?">
+    <meta name="description" content="Cartoon circles in a mosh pit">
 
-    <link rel="canonical" href="https://dugbus.com/p5/chaos-circles">
+    <link rel="canonical" href="https://dugbus.com/p5/crowded-house">
     <link rel="icon" type="image/svg+xml" href="/logo.svg">
 
-    <meta property="og:url" content="https://dugbus.com/p5/chaos-circles">
+    <meta property="og:url" content="https://dugbus.com/p5/crowded-house">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="DUGBUS">
     <meta property="og:locale" content="en_GB">
@@ -38,21 +38,21 @@
             display: block;
         }
 
-        #stats {
+        .info {
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            inset: auto auto 1rem 1rem;
             position: absolute;
-            top: 0;
-            left: 0;
-            padding: 1rem;
-            color: white;
-            font-size: 1.5rem;
-            font-family: monospace;
-            z-index: 1000;
+            z-index: 10;
+            font-size: 0.8em;
         }
     </style>
 </head>
 
 <body>
-    <div id="stats">
+    <div id="stats" class="info">
     </div>
     <script>
         let count = 300
@@ -77,9 +77,9 @@
 
         function draw() {
             //background(20, 0, 0)
-            canvasImage = get();
+            //canvasImage = get();
             background(20, 0, 0)
-            image(canvasImage, 0, 0);
+            //image(canvasImage, 0, 0);
 
             orbitControl(4, 4)
 
@@ -93,7 +93,7 @@
             }
 
             fr = round((fr + frameRate()) * 0.5)
-            stats.innerHTML = `FR : ${fr}<br>CT : ${stars.length}`
+            stats.innerHTML = `Frame Rate : ${fr}<br>Object Count : ${stars.length}`
             if (fr < 30) {
                 stars.shift()
             }
