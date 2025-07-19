@@ -2,6 +2,7 @@
 
 body {
   background: url(blobs.svg) var(--color-paper) no-repeat center center / cover;
+  background-attachment: fixed;
 }
 
 .projects {
@@ -33,6 +34,7 @@ body {
   transition:
     opacity var(--transition-time) ease,
     visibility var(--transition-time) ease;
+  box-shadow: 0px 2px 2px hsla(0 0% 0% / 0.1), 0px 4px 4px hsla(0 0% 0% / 0.1);
 }
 
 .project.show {
