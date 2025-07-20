@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.0.0"
+    "@biomejs/biome": "2.1.2",
+    "vite": "^7.0.5"
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",
