@@ -79,41 +79,41 @@
     }
 
     function draw() {
-      hurry = 0;
+      // hurry = 0;
 
-      while (hurry < count * 30) {
-        walkers.forEach((el) => {
-          fill((255 / height) * (height - el.y) - 40);
-          circle(el.x, el.y, el.r);
-          el.x = el.x + 1;
-          el.y = el.y + el.a;
-          el.c = el.c - 1;
-          if (el.c > 0) {
-            return;
-          }
+      // while (hurry < count * 30) {
+      walkers.forEach((el) => {
+        fill((255 / height) * (height - el.y) - 40);
+        circle(el.x, el.y, el.r);
+        el.x = el.x + 1;
+        el.y = el.y + el.a;
+        el.c = el.c - 1;
+        if (el.c > 0) {
+          return;
+        }
 
-          let turn = random(100);
+        let turn = random(100);
 
-          if (turn > 99.5) {
-            el.a = 1;
-            el.c = 100;
-            return;
-          }
+        if (turn > 99.5) {
+          el.a = 1;
+          el.c = 100;
+          return;
+        }
 
-          if ((turn > 49) && (turn < 50)) {
-            el.a = 0;
-            el.c = 50;
-            return;
-          }
+        if ((turn > 49) && (turn < 50)) {
+          el.a = 0;
+          el.c = 50;
+          return;
+        }
 
-          if (turn < 0.5) {
-            el.a = -1;
-            el.c = 100;
-            return;
-          }
-        });
-        hurry = hurry + 1;
-      }
+        if (turn < 0.5) {
+          el.a = -1;
+          el.c = 100;
+          return;
+        }
+      });
+      hurry = hurry + 1;
+      // }
     }
 
     function Walker(x, y, r, a, c) {

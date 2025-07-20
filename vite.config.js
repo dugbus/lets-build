@@ -7,14 +7,12 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
-        code: 'code/scrypt/index.html',
-        wordleGolf: 'text/wordle-golf/index.html',
-        canvasTestCard: 'canvas/test-card/index.html',
-        p5Wipeout: 'p5/wipeout/index.html',
-        p5PerlinContours: 'p5/perlin-contours/index.html',
-        p5ChaosCircles: 'p5/chaos-circles/index.html',
-        p5Tadpoles: 'p5/tadpoles/index.html',
-        p5CrowdedHouse: 'p5/crowded-house/index.html',
+        p5CrowdedHouse: 'en/crowded-house/index.html',
+        p5PerlinContours: 'en/perlin-contours/index.html',
+        p5Tadpoles: 'en/tadpoles/index.html',
+        canvasTestCard: 'en/test-card/index.html',
+        p5Wipeout: 'en/wipeout/index.html',
+        canvasChalkyWalkers: 'en/chalky-walkers/index.html',
       }
     }
   }

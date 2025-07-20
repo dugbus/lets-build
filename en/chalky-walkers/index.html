@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chalky Walkers • DUGBUS</title>
+
+    <meta name="description" content="The hello world of generative art.">
+
+    <link rel="canonical" href="https://dugbus.com/en/chalky-walkers">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+
+    <meta property="og:url" content="https://dugbus.com/en/chalky-walkers">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DUGBUS">
+    <meta property="og:locale" content="en_GB">
+
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            height: 100%;
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+
+        .info {
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            inset: auto auto 1rem 1rem;
+            position: absolute;
+            z-index: 10;
+            font-size: 0.8em;
+        }
+
+        .home-logo {
+            position: absolute;
+            inset: 1rem auto auto 1rem;
+        }
+
+        .home-logo svg {
+            width: 3rem;
+            aspect-ratio: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/" class="home-logo" title="Go to home page">
+        <svg>
+            <use href="/sprites.svg#logo"></use>
+        </svg>
+    </a>
+    <div id="stats" class="info"></div>
+
+    <canvas id="canvas" onclick="_stop=true">
+        Your browser does not support HTML5 canvas, please consider updating or
+        changing your browser for a better experience.
+    </canvas>
+
+    <script>
+        const w = function () { const l = document.createElement("link").relList; if (l && l.supports && l.supports("modulepreload")) return; for (const o of document.querySelectorAll('link[rel="modulepreload"]')) c(o); new MutationObserver(o => { for (const t of o) if (t.type === "childList") for (const n of t.addedNodes) n.tagName === "LINK" && n.rel === "modulepreload" && c(n) }).observe(document, { childList: !0, subtree: !0 }); function r(o) { const t = {}; return o.integrity && (t.integrity = o.integrity), o.referrerpolicy && (t.referrerPolicy = o.referrerpolicy), o.crossorigin === "use-credentials" ? t.credentials = "include" : o.crossorigin === "anonymous" ? t.credentials = "omit" : t.credentials = "same-origin", t } function c(o) { if (o.ep) return; o.ep = !0; const t = r(o); fetch(o.href, t) } }; w(); const x = document.getElementById("stats"), s = document.getElementById("canvas"), i = s.getContext("2d"), M = window.devicePixelRatio; console.log(devicePixelRatio); const d = document.body.clientWidth, h = document.body.clientHeight; s.width = d; s.height = h; let p = 20, a = new Array, g = !1; for (let e = 0; e < p; e++)a.push({}), a[e].x = Math.floor(d / 2), a[e].y = Math.floor(h / 2), a[e].color = `hsla(${18 * e}, 73%, 50%, 0.1)`; function v(e) { let l = Math.floor(Math.random() * 4); l === 0 ? e.x++ : l === 1 ? e.x-- : l === 2 ? e.y++ : e.y--, i.fillStyle = e.color, i.fillRect(e.x, e.y, 1, 1) } function L(e) { let l = 0, r = 5, c = 1 / (2 * Math.PI * r * r), o = e < 3 ? 1 : 2; for (let t = -e; t <= e; t += o)for (let n = -e; n <= e; n += o)l += c * Math.exp(-(n * n + t * t) / (2 * r * r)); for (let t = -e; t <= e; t += o)for (let n = -e; n <= e; n += o)i.globalAlpha = c * Math.exp(-(n * n + t * t) / (2 * r * r)) / l * e, i.drawImage(s, n, t); i.globalAlpha = 1 } function y() {
+            for (let e = 0; e < 120 - f; e++)for (let l = 0; l < p; l++)v(a[l]); L(.01), u = Math.floor(performance.now()), f = Math.floor((u - m + f) / 2), m = u, !g && (x.innerText = `delta = ${f}
+  dpi = ${M}`, window.requestAnimationFrame(y))
+        } s.addEventListener("click", function () { g = !0 }); i.globalCompositeOperation = "soft-light"; i.fillStyle = "#16161d"; i.fillRect(0, 0, d, h); let m = Math.floor(performance.now()), u = 0, f = 0; y();
+
+    </script>
+</body>
+
+</html>

@@ -40,7 +40,11 @@ html {
   background: var(--color-paper);
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@view-transition {
+  navigation: auto;
+}
+
+@media not (prefers-reduced-motion) {
   html {
     scroll-behavior: smooth;
   }
